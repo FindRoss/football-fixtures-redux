@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Fixtures from "./components/Fixtures";
+import Leagues from "./components/Leagues";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import { Provider } from "react-redux";
+import store from "./store";
+
+import { Pane, Heading, Text } from "evergreen-ui";
+
+const App = () => (
+  <Provider store={store}>
+    <Pane padding={16} background="greenTint" borderRadius={3}>
+      <div className="container">
+        <Pane display="flex">
+          <Pane flex={1}>
+            <Heading size={700}>Footy Fixtures</Heading>
+            <Text size={300}>
+              Upcoming games from the World's top competitions
+            </Text>
+          </Pane>
+          <Leagues />
+        </Pane>
+      </div>
+    </Pane>
+    <div className="container">
+      <Fixtures />
     </div>
-  );
-}
+  </Provider>
+);
 
 export default App;
