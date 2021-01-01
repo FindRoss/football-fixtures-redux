@@ -29,7 +29,7 @@ function fetchLeaguesError(error) {
 
 export const fetchLeagues = () => dispatch => {
   dispatch(fetchLeaguesBegin());
-  axios.get(`http://api.football-data.org/v2/competitions?plan=TIER_ONE`, head)
+  axios.get(`https://api.football-data.org/v2/competitions?plan=TIER_ONE`, head)
     .then(res => dispatch(fetchLeaguesSuccess(res.data)))
     .catch(error => dispatch(fetchLeaguesError(error)))
 }
