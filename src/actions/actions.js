@@ -29,7 +29,7 @@ function fetchMatchesError(error) {
 
 export const fetchMatches = (league) => dispatch => {
   dispatch(fetchMatchesBegin());
-  axios.get(`http://api.football-data.org/v2/competitions/${league}/matches?status=SCHEDULED`, head)
+  axios.get(`https://api.football-data.org/v2/competitions/${league}/matches?status=SCHEDULED`, head)
     .then(res => dispatch(fetchMatchesSuccess(res.data)))
     .catch(error => {
       console.log(error);
